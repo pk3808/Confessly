@@ -1,9 +1,10 @@
+import IntroPage from "./pages/intro/page";
 
 export default function Home() {
   return (
-   <>
-   <div>lets start</div>
-   
-   </>
+    <>
+      <IntroPage />
+
+    </>
   );
 }
