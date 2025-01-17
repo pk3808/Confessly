@@ -50,7 +50,7 @@ const IntroPage = () => {
   };
 
   return (
-    <div className="h-screen w-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center px-4">
+    <div className="h-screen w-screen bg-gray-900 dark:bg-gray-900 flex items-center justify-center px-4">
       <div className="bg-white dark:bg-gray-800 shadow-xl rounded-lg flex flex-col md:flex-row w-full max-w-4xl p-6 md:p-8">
         {/* Left Section - Image */}
         <div className="flex-1 flex items-center justify-center">
