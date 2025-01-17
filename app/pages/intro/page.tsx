@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-
+import "./intro.css"
 const IntroPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const router = useRouter(); // To navigate to the signup page
@@ -50,15 +50,15 @@ const IntroPage = () => {
   };
 
   return (
-    <div className="h-screen w-screen bg-gray-900 dark:bg-gray-900 flex items-center justify-center px-4">
-      <div className="bg-white dark:bg-gray-800 shadow-xl rounded-lg flex flex-col md:flex-row w-full max-w-4xl p-6 md:p-8">
+    <div className="h-screen w-screen bg-[#eee4e1] dark:bg-gray-900 flex items-center justify-center px-4">
+      <div className="bg-[#e7d8c9] dark:bg-gray-800 shadow-xl rounded-lg flex flex-col md:flex-row w-full max-w-4xl p-6 md:p-8">
         {/* Left Section - Image */}
         <div className="flex-1 flex items-center justify-center">
           <div className="w-full h-64 md:h-80 flex items-center justify-center overflow-hidden">
             <img
               src={slides[currentSlide].image}
               alt={slides[currentSlide].title}
-              className="w-full h-full object-contain"
+              className="w-full h-full object-contain floating-image"
             />
           </div>
         </div>
