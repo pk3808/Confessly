@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -52,29 +52,48 @@ const IntroPage = () => {
 
   return (
     <div className="h-screen w-screen bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center px-4">
-      <div className="bg-white shadow-2xl rounded-3xl flex flex-col md:flex-row w-full max-w-4xl p-6 md:p-8 transition-transform duration-500 hover:scale-105">
+      <div className="bg-gradient-to-br from-blue-100 to-purple-300 shadow-2xl rounded-3xl flex flex-col-reverse md:flex-row w-full max-w-4xl p-4 md:p-8 transition-transform duration-500 hover:scale-105">
         {/* Left Section - Image */}
-        <div className="flex-1 flex items-center justify-center">
-          <div className="w-full h-64 md:h-80 flex items-center justify-center overflow-hidden">
+        <div className="flex-1 flex w-full h-80 md:h-80 items-center justify-center overflow-hidden relative">
+          {slides.map((slide, index) => (
             <img
-              src={slides[currentSlide].image}
-              alt={slides[currentSlide].title}
-              className="w-full h-full object-contain animate-slideImage floating-image"
+              key={index}
+              src={slide.image}
+              alt={slide.title}
+              className={`absolute floating-image w-full h-full object-contain transition-all duration-700 ease-in-out ${
+                index === currentSlide
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 translate-x-20"
+              }`}
             />
-          </div>
+          ))}
         </div>
 
         {/* Right Section - Info */}
-        <div className="flex-1 flex flex-col justify-between mt-6 md:mt-0 md:ml-6 min-h-[200px] max-h-[250px]">
-          <h2 className="text-2xl md:text-3xl font-bold text-purple-600 animate-slideIn">
-            {slides[currentSlide].title}
-          </h2>
-          <p className="text-gray-600 mt-4 text-base md:text-lg animate-fadeIn">
-            {slides[currentSlide].description}
-          </p>
+        <div className="flex-1 flex flex-col justify-between mt-6 md:mt-0  min-h-[300px] max-h-[350px]">
+          {/* Right Section - Info */}
+          <div className="flex-1 flex flex-col justify-between mt-6 md:mt-0   relative">
+            {slides.map((slide, index) => (
+              <div
+                key={index}
+                className={`absolute transition-all duration-700 ease-in-out md:mt-[5%] ${
+                  index === currentSlide
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 translate-x-20"
+                }`}
+              >
+                <h2 className="text-2xl md:text-3xl font-bold text-purple-600">
+                  {slide.title}
+                </h2>
+                <p className="text-gray-600 mt-4 text-base md:text-lg">
+                  {slide.description}
+                </p>
+              </div>
+            ))}
+          </div>
 
           {/* Navigation Buttons */}
-          <div className="flex items-center justify-between mt-6">
+          <div className="flex items-center justify-between md:mb-[3%]">
             <button
               className={`py-2 px-4 rounded-full transition-all duration-500 transform focus:ring focus:ring-purple-300 ${
                 currentSlide === 0
@@ -92,8 +111,8 @@ const IntroPage = () => {
                   key={index}
                   className={`h-3 w-3 rounded-full transition-all duration-500 transform ${
                     index === currentSlide
-                      ? "bg-purple-500 scale-150 shadow-lg"
-                      : "bg-gray-300 scale-100"
+                      ? "bg-purple-700 scale-150 shadow-lg"
+                      : "bg-purple-400 scale-100"
                   }`}
                 ></span>
               ))}

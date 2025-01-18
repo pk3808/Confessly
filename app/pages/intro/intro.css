@@ -11,6 +11,8 @@
   }
   
   .floating-image {
-    animation: floatUpDown 5s ease-in-out infinite;
+    animation: floatUpDown 7s ease-in-out infinite;
   }
-  
+  .transition-slide {
+  transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
+}
