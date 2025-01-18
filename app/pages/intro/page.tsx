@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import "./intro.css";
-import { motion, AnimatePresence } from "framer-motion";
 
 const IntroPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
