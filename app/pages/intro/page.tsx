@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import "./intro.css"
+import "./intro.css";
+
 const IntroPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const router = useRouter(); // To navigate to the signup page
+  const router = useRouter();
   const slides = [
     {
       title: "Share Your Thoughts Anonymously",
@@ -46,74 +47,72 @@ const IntroPage = () => {
   };
 
   const handleSignUp = () => {
-    router.push("/signup"); // Navigate to the signup page
+    router.push("/signup");
   };
 
   return (
-    <div className="h-screen w-screen bg-[#eee4e1] dark:bg-gray-900 flex items-center justify-center px-4">
-      <div className="bg-[#e7d8c9] dark:bg-gray-800 shadow-xl rounded-lg flex flex-col md:flex-row w-full max-w-4xl p-6 md:p-8">
+    <div className="h-screen w-screen bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center px-4">
+      <div className="bg-white shadow-2xl rounded-3xl flex flex-col md:flex-row w-full max-w-4xl p-6 md:p-8 transition-transform duration-500 hover:scale-105">
         {/* Left Section - Image */}
         <div className="flex-1 flex items-center justify-center">
           <div className="w-full h-64 md:h-80 flex items-center justify-center overflow-hidden">
             <img
               src={slides[currentSlide].image}
               alt={slides[currentSlide].title}
-              className="w-full h-full object-contain floating-image"
+              className="w-full h-full object-contain animate-slideImage floating-image"
             />
           </div>
         </div>
 
         {/* Right Section - Info */}
-        <div className="flex-1 flex flex-col justify-between mt-6 md:mt-0 md:ml-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-blue-500 dark:text-blue-300">
+        <div className="flex-1 flex flex-col justify-between mt-6 md:mt-0 md:ml-6 min-h-[200px] max-h-[250px]">
+          <h2 className="text-2xl md:text-3xl font-bold text-purple-600 animate-slideIn">
             {slides[currentSlide].title}
           </h2>
-          <p className="text-gray-700 dark:text-gray-400 mt-4 text-base md:text-lg">
+          <p className="text-gray-600 mt-4 text-base md:text-lg animate-fadeIn">
             {slides[currentSlide].description}
           </p>
 
           {/* Navigation Buttons */}
           <div className="flex items-center justify-between mt-6">
             <button
-              className={`py-2 px-4 rounded ${
+              className={`py-2 px-4 rounded-full transition-all duration-500 transform focus:ring focus:ring-purple-300 ${
                 currentSlide === 0
                   ? "bg-gray-400 cursor-not-allowed"
-                  : "bg-blue-500 hover:bg-blue-600"
+                  : "bg-purple-500 hover:bg-purple-600 hover:scale-110"
               } text-white`}
               onClick={handlePrevious}
               disabled={currentSlide === 0}
             >
               Previous
             </button>
+            <div className="flex mt-4 space-x-2 justify-center">
+              {slides.map((_, index) => (
+                <span
+                  key={index}
+                  className={`h-3 w-3 rounded-full transition-all duration-500 transform ${
+                    index === currentSlide
+                      ? "bg-purple-500 scale-150 shadow-lg"
+                      : "bg-gray-300 scale-100"
+                  }`}
+                ></span>
+              ))}
+            </div>
             {currentSlide === slides.length - 1 ? (
               <button
-                className="py-2 px-4 bg-green-500 hover:bg-green-600 text-white rounded"
+                className="py-2 px-4 bg-green-500 hover:bg-green-600 text-white rounded-full transform hover:scale-110 transition-all duration-500 focus:ring focus:ring-green-300"
                 onClick={handleSignUp}
               >
                 Sign Up
               </button>
             ) : (
               <button
-                className="py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded"
+                className="py-2 px-4 bg-purple-500 hover:bg-purple-600 text-white rounded-full transform hover:scale-110 transition-all duration-500 focus:ring focus:ring-purple-300"
                 onClick={handleNext}
               >
                 Next
               </button>
             )}
-          </div>
-
-          {/* Progress Dots */}
-          <div className="flex mt-4 space-x-2 justify-center">
-            {slides.map((_, index) => (
-              <span
-                key={index}
-                className={`h-3 w-3 rounded-full ${
-                  index === currentSlide
-                    ? "bg-blue-500"
-                    : "bg-gray-300 dark:bg-gray-600"
-                }`}
-              ></span>
-            ))}
           </div>
         </div>
       </div>
