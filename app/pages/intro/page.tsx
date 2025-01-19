@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import "./intro.css";
+import Image from "next/image";
 
 const IntroPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -52,25 +53,30 @@ const IntroPage = () => {
 
   return (
     <div className="h-screen w-screen bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center px-4">
+     
+
       <div className="bg-gradient-to-br from-blue-100 to-purple-300 shadow-2xl rounded-3xl flex flex-col-reverse md:flex-row w-full max-w-4xl p-4 md:p-8 transition-transform duration-500 hover:scale-105">
         {/* Left Section - Image */}
-        <div className="flex-1 flex w-full h-80 md:h-80 items-center justify-center overflow-hidden relative">
+        <div className="flex-1 flex w-full h-[250px] md:h-80 items-center justify-center overflow-hidden relative">
           {slides.map((slide, index) => (
-            <img
+            <Image
               key={index}
               src={slide.image}
               alt={slide.title}
-              className={`absolute floating-image w-full h-full object-contain transition-all duration-700 ease-in-out ${
+              width={400} // Adjust width for mobile
+              height={250} // Adjust height for mobile
+              className={`absolute floating-image w-full max-h-[250px] md:max-h-[300px] object-contain transition-all duration-700 ease-in-out ${
                 index === currentSlide
                   ? "opacity-100 translate-x-0"
                   : "opacity-0 translate-x-20"
               }`}
+              priority
             />
           ))}
         </div>
 
-        {/* Right Section - Info */}
         <div className="flex-1 flex flex-col justify-between mt-6 md:mt-0  min-h-[300px] max-h-[350px]">
+          
           {/* Right Section - Info */}
           <div className="flex-1 flex flex-col justify-between mt-6 md:mt-0   relative">
             {slides.map((slide, index) => (
