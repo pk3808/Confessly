@@ -48,7 +48,7 @@ const IntroPage = () => {
   };
 
   const handleSignUp = () => {
-    router.push("/auth/signup");
+    router.push("pages/auth/signup");
   };
 
   return (
