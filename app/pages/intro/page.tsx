@@ -4,7 +4,9 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import "./intro.css";
 import Image from "next/image";
-
+import NavigateNextSharpIcon from '@mui/icons-material/NavigateNextSharp';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 const IntroPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const router = useRouter();
@@ -98,7 +100,7 @@ const IntroPage = () => {
           {/* Navigation Buttons */}
           <div className="flex items-center justify-between md:mb-[3%]">
             <button
-              className={`py-2 px-4 rounded-full transition-all duration-500 transform focus:ring focus:ring-purple-300 ${
+              className={`py-2 px-4  rounded-full transition-all duration-500 transform focus:ring focus:ring-purple-300 ${
                 currentSlide === 0
                   ? "bg-gray-400 cursor-not-allowed"
                   : "bg-purple-500 hover:bg-purple-600 hover:scale-110"
@@ -106,7 +108,7 @@ const IntroPage = () => {
               onClick={handlePrevious}
               disabled={currentSlide === 0}
             >
-              Previous
+              <ArrowBackIosIcon fontSize="small" className="ml-2 text-24"/>
             </button>
             <div className="flex mt-4 space-x-2 justify-center">
               {slides.map((_, index) => (
@@ -132,7 +134,7 @@ const IntroPage = () => {
                 className="py-2 px-4 bg-purple-500 hover:bg-purple-600 text-white rounded-full transform hover:scale-110 transition-all duration-500 focus:ring focus:ring-purple-300"
                 onClick={handleNext}
               >
-                Next
+                <NavigateNextSharpIcon fontSize="medium"/>
               </button>
             )}
           </div>
