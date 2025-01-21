@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import "./intro.css";
 import Image from "next/image";
-import NavigateNextSharpIcon from '@mui/icons-material/NavigateNextSharp';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 const IntroPage = () => {
