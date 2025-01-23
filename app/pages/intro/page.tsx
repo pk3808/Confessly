@@ -53,8 +53,8 @@ const IntroPage = () => {
   };
 
   return (
-    <div className="h-screen w-screen bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center px-4">
-      <div className="bg-gradient-to-br from-blue-200 to-purple-200 shadow-2xl rounded-3xl flex flex-col-reverse md:flex-row w-full max-w-4xl p-4 md:p-8 transition-transform duration-500 hover:scale-105">
+    <div className="h-screen w-screen bg-gradient-to-br from-[#EADDCA] to-[#ffffff] flex items-center justify-center px-4">
+      <div className="bg-gradient-to-br from-[#FFE7C7] to-purple-200 shadow-2xl rounded-3xl flex flex-col-reverse md:flex-row w-full max-w-4xl p-4 md:p-8 transition-transform duration-500 hover:scale-105">
         {/* Left Section - Image */}
         <div className="flex-1 flex w-full h-[250px] md:h-80 items-center justify-center overflow-hidden relative">
           {slides.map((slide, index) => (
@@ -86,10 +86,10 @@ const IntroPage = () => {
                     : "opacity-0 translate-x-20"
                 }`}
               >
-                <h2 className="text-2xl md:text-3xl font-bold text-purple-600">
+                <h2 className="text-2xl md:text-3xl font-bold text-orange-500">
                   {slide.title}
                 </h2>
-                <p className="text-gray-600 mt-4 text-base md:text-lg">
+                <p className="text-gray-700 mt-4 text-base md:text-lg">
                   {slide.description}
                 </p>
               </div>
@@ -102,12 +102,13 @@ const IntroPage = () => {
               className={`py-2 px-4  rounded-full transition-all duration-500 transform focus:ring focus:ring-purple-300 ${
                 currentSlide === 0
                   ? "bg-gray-400 cursor-not-allowed"
-                  : "bg-purple-500 hover:bg-purple-600 hover:scale-110"
+                  : "bg-[#E97451] hover:bg-[#E97451] hover:scale-110"
               } text-white`}
               onClick={handlePrevious}
               disabled={currentSlide === 0}
             >
-              <ArrowBackIosIcon fontSize="medium" className="pl-1"/>
+              {/* <ArrowBackIosIcon fontSize="medium" className="pl-1"/> */}
+              Previous
             </button>
             <div className="flex mt-4 space-x-2 justify-center">
               {slides.map((_, index) => (
@@ -115,8 +116,8 @@ const IntroPage = () => {
                   key={index}
                   className={`h-3 w-3 rounded-full transition-all duration-500 transform ${
                     index === currentSlide
-                      ? "bg-purple-700 scale-150 shadow-lg"
-                      : "bg-purple-400 scale-100"
+                      ? "bg-orange-500 scale-150 shadow-lg"
+                      : "bg-orange-400 scale-100"
                   }`}
                 ></span>
               ))}
@@ -130,10 +131,11 @@ const IntroPage = () => {
               </button>
             ) : (
               <button
-                className="py-2 px-4 bg-purple-500 hover:bg-purple-600 text-white rounded-full transform hover:scale-110 transition-all duration-500 focus:ring focus:ring-purple-300"
+                className="py-2 px-4 bg-[#E97451] hover:bg-[#E97451] text-white rounded-full transform hover:scale-110 transition-all duration-500 focus:ring focus:ring-purple-300"
                 onClick={handleNext}
               >
-                <ArrowForwardIosOutlinedIcon fontSize="small"/>
+                {/* <ArrowForwardIosOutlinedIcon fontSize="small"/> */}
+                Next
               </button>
             )}
           </div>
