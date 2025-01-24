@@ -27,7 +27,13 @@ const LoginPage: React.FC = () => {
   };
 
   const handleSignUpRedirect = () => {
-    router.push("/signup");
+    router.push("signup");
+  };
+
+  const handleForgotPassword = () => {
+    console.log("Forgot password clicked");
+    // Add forgot password logic or redirect here
+    router.push("forgotPassword");
   };
 
   return (
@@ -36,7 +42,7 @@ const LoginPage: React.FC = () => {
         {/* Left Section - Image */}
         <div className="flex-1 flex items-center justify-center overflow-hidden relative">
           <Image
-            src="/images/signup.png"
+            src="/images/loginc.png"
             alt="Welcome back!"
             width={400}
             height={400}
@@ -87,6 +93,14 @@ const LoginPage: React.FC = () => {
             >
               Login
             </button>
+            <div className="text-right mt-2">
+              <span
+                className="text-sm text-purple-600 hover:underline cursor-pointer"
+                onClick={handleForgotPassword}
+              >
+                Forgot password?
+              </span>
+            </div>
           </div>
           <div className="mt-4 flex items-center justify-center space-x-3">
             <button
