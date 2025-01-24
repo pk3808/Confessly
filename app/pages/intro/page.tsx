@@ -4,8 +4,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import "./intro.css";
 import Image from "next/image";
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 const IntroPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const router = useRouter();
