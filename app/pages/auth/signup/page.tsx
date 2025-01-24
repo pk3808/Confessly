@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Google, Facebook, Person, Email, Visibility, VisibilityOff, Key } from "@mui/icons-material";
+import Logo from "@/app/components/logo/logo";
 
 const SignUpPage: React.FC = () => {
   const [username, setUsername] = useState("");
@@ -34,8 +35,9 @@ const SignUpPage: React.FC = () => {
   };
 
   return (
-    <main className="h-screen w-screen  bg-gradient-to-br from-[#EADDCA] to-[#ffffff] flex items-center justify-center px-4">
-      <section className="bg-gradient-to-br from-[#FFE7C7] to-purple-200 shadow-2xl rounded-2xl flex flex-col md:flex-row w-full max-w-4xl p-3 md:p-6 transition-transform duration-500 hover:scale-105">
+    <main className="h-screen w-screen overflow-hidden bg-gradient-to-br from-[#EADDCA] to-[#ffffff] flex items-center justify-center px-4">
+      <Logo />
+      <section className="bg-gradient-to-br from-[#FFE7C7] to-purple-200 shadow-2xl rounded-2xl flex flex-col md:flex-row w-full max-w-4xl p-3 md:p-6 transition-transform duration-500 md:hover:scale-105">
         {/* Left Section - Image */}
         <div className="flex-1 flex items-center justify-center overflow-hidden relative">
           <Image
@@ -43,14 +45,15 @@ const SignUpPage: React.FC = () => {
             alt="Welcome to the community"
             width={400}
             height={400}
-            className="rounded-lg"
+            className="rounded-lg w-56 h-56 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-90 lg:h-90"
             priority
           />
+
         </div>
 
         {/* Right Section - Form */}
         <div className="flex-1 flex flex-col justify-center mt-4 md:mt-0 px-3">
-          <h2 className="text-2xl md:text-3xl font-bold text-orange-500 mb-3">
+          <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-pink-500 via-orange-400 to-orange-500 bg-clip-text text-transparent mb-3">
             Create Your Account
           </h2>
           <p className="text-gray-600 mb-4">
