@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Email } from "@mui/icons-material";
+import Logo from "@/app/components/logo/logo";
+
 
 const ForgotPasswordPage: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -21,8 +23,10 @@ const ForgotPasswordPage: React.FC = () => {
   };
 
   return (
-    <main className="h-screen w-screen bg-gradient-to-br from-[#EADDCA] to-[#ffffff] flex items-center justify-center px-4">
-      <section className="bg-gradient-to-br from-[#FFE7C7] to-purple-200 shadow-2xl rounded-2xl flex flex-col md:flex-row w-full max-w-3xl p-3 md:p-6 transition-transform duration-500 hover:scale-105">
+    <main className="h-screen  overflow-hidden w-screen bg-gradient-to-br from-[#EADDCA] to-[#ffffff] flex items-center justify-center px-4">
+      <Logo />
+
+      <section className="bg-gradient-to-br from-[#FFE7C7] to-purple-200 shadow-2xl rounded-2xl flex flex-col md:flex-row w-full max-w-3xl p-3 md:p-6 transition-transform duration-500 md:hover:scale-105">
         {/* Left Section - Image */}
         <div className="flex-1 flex items-center justify-center overflow-hidden relative">
           <Image
@@ -30,7 +34,7 @@ const ForgotPasswordPage: React.FC = () => {
             alt="Forgot Password"
             width={400}
             height={400}
-            className="rounded-lg"
+            className="rounded-lg w-64 h-64 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-90 lg:h-90"
             priority
           />
         </div>
