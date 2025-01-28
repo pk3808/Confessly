@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 const Otp = () => {
     const [otp, setOtp] = useState("");
-    const router = useRouter();
+    // const router = useRouter();
     const handleOtpSubmit = () => {
         console.log("Verify OTP:", otp);
         // Add OTP verification logic here
