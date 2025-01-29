@@ -119,7 +119,7 @@ const IntroPage = () => {
 
           {/* Navigation Buttons */}
           {currentSlide === 0 ? (
-            <div className="flex items-center justify-between md:mb-[13%] ">
+            <div className="flex items-center justify-between md:mb-[23%] ">
               <button
                 className="py-2 px-14 bg-green-500  text-white rounded-full"
                 onClick={() => setCurrentSlide(currentSlide + 1)}
