@@ -1,0 +1,171 @@
+[
+    {
+      "id": "1",
+      "user": {
+        "pseudonym": "MysteriousSoul",
+        "profile_icon": "https://source.unsplash.com/100x100/?portrait,1"
+      },
+      "category": "Love",
+      "text": "I still have feelings for my high school crush, and I don't know if I should reach out after all these years.",
+      "timestamp": "2025-01-30T14:32:00Z",
+      "reactions": 56,
+      "comments": 12,
+      "relates": 30,
+      "chat_requests": 5
+    },
+    {
+      "id": "2",
+      "user": {
+        "pseudonym": "SilentObserver",
+        "profile_icon": "https://source.unsplash.com/100x100/?portrait,2"
+      },
+      "category": "Career",
+      "text": "I've been working this job for five years, but deep inside, I don't think I belong here. Should I quit and start fresh?",
+      "timestamp": "2025-01-30T12:20:00Z",
+      "reactions": 85,
+      "comments": 24,
+      "relates": 45,
+      "chat_requests": 10
+    },
+    {
+      "id": "3",
+      "user": {
+        "pseudonym": "RegretfulMind",
+        "profile_icon": "https://source.unsplash.com/100x100/?portrait,3"
+      },
+      "category": "Apologies",
+      "text": "I wish I had apologized to my best friend before they moved away. Now, it feels too late.",
+      "timestamp": "2025-01-30T10:50:00Z",
+      "reactions": 40,
+      "comments": 5,
+      "relates": 18,
+      "chat_requests": 3
+    },
+    {
+      "id": "4",
+      "user": {
+        "pseudonym": "DreamerLost",
+        "profile_icon": "https://source.unsplash.com/100x100/?portrait,4"
+      },
+      "category": "Embarrassments",
+      "text": "I once accidentally replied to my boss with 'I love you' at the end of an email. I still cringe thinking about it.",
+      "timestamp": "2025-01-29T18:10:00Z",
+      "reactions": 120,
+      "comments": 30,
+      "relates": 70,
+      "chat_requests": 15
+    },
+    {
+      "id": "5",
+      "user": {
+        "pseudonym": "HiddenEcho",
+        "profile_icon": "https://source.unsplash.com/100x100/?portrait,5"
+      },
+      "category": "Love",
+      "text": "Every night, I write unsent letters to the person I love. Maybe one day, they'll know.",
+      "timestamp": "2025-01-29T22:45:00Z",
+      "reactions": 98,
+      "comments": 20,
+      "relates": 50,
+      "chat_requests": 8
+    },
+    {
+      "id": "6",
+      "user": {
+        "pseudonym": "WanderingMind",
+        "profile_icon": "https://source.unsplash.com/100x100/?portrait,6"
+      },
+      "category": "Career",
+      "text": "I lied on my resume about knowing Excel. Now my boss wants me to create complex reports. Help!",
+      "timestamp": "2025-01-28T15:30:00Z",
+      "reactions": 75,
+      "comments": 18,
+      "relates": 35,
+      "chat_requests": 12
+    },
+    {
+      "id": "7",
+      "user": {
+        "pseudonym": "NoFilter",
+        "profile_icon": "https://source.unsplash.com/100x100/?portrait,7"
+      },
+      "category": "Embarrassments",
+      "text": "I waved back at someone who wasn’t actually waving at me. I played it off by pretending I was stretching.",
+      "timestamp": "2025-01-27T09:10:00Z",
+      "reactions": 110,
+      "comments": 22,
+      "relates": 60,
+      "chat_requests": 14
+    },
+    {
+      "id": "8",
+      "user": {
+        "pseudonym": "ShySoul",
+        "profile_icon": "https://source.unsplash.com/100x100/?portrait,8"
+      },
+      "category": "Love",
+      "text": "There's someone at my gym I secretly admire. I've never spoken to them, and I probably never will.",
+      "timestamp": "2025-01-26T21:55:00Z",
+      "reactions": 90,
+      "comments": 15,
+      "relates": 55,
+      "chat_requests": 9
+    },
+    {
+      "id": "9",
+      "user": {
+        "pseudonym": "NightThinker",
+        "profile_icon": "https://source.unsplash.com/100x100/?portrait,9"
+      },
+      "category": "Apologies",
+      "text": "I regret ghosting my old friend. If you're reading this, I'm truly sorry.",
+      "timestamp": "2025-01-25T14:30:00Z",
+      "reactions": 80,
+      "comments": 10,
+      "relates": 40,
+      "chat_requests": 6
+    },
+    {
+      "id": "10",
+      "user": {
+        "pseudonym": "AnonymousExplorer",
+        "profile_icon": "https://source.unsplash.com/100x100/?portrait,10"
+      },
+      "category": "Career",
+      "text": "I’m so close to quitting my 9-to-5 and starting my own business. The fear of failing is holding me back.",
+      "timestamp": "2025-01-24T11:05:00Z",
+      "reactions": 95,
+      "comments": 25,
+      "relates": 50,
+      "chat_requests": 7
+    },
+    {
+      "id": "11",
+      "user": {
+        "pseudonym": "LostInThoughts",
+        "profile_icon": "https://source.unsplash.com/100x100/?portrait,11"
+      },
+      "category": "Embarrassments",
+      "text": "I tripped in front of a huge crowd and pretended it was part of a dance move.",
+      "timestamp": "2025-01-23T16:40:00Z",
+      "reactions": 130,
+      "comments": 35,
+      "relates": 75,
+      "chat_requests": 18
+    },
+    {
+      "id": "12",
+      "user": {
+        "pseudonym": "ShadowSpeaker",
+        "profile_icon": "https://source.unsplash.com/100x100/?portrait,12"
+      },
+      "category": "Love",
+      "text": "I found an old love letter I wrote but never sent. Now, I wonder what could have been.",
+      "timestamp": "2025-01-22T20:15:00Z",
+      "reactions": 85,
+      "comments": 14,
+      "relates": 40,
+      "chat_requests": 5
+    }
+  ]
+  
