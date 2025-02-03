@@ -14,6 +14,7 @@ const LoginPage: React.FC = () => {
 
   const handleLogin = () => {
     console.log("Login with", { email, password });
+    router.push("/pages/dashBoard");
     // Add login logic here
   };
 
