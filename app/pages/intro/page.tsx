@@ -63,7 +63,12 @@ const IntroPage = () => {
 
   return (
     <div className="h-screen w-screen  overflow-hidden bg-gradient-to-br from-[#EADDCA] to-[#ffffff] flex items-center justify-center px-4 overflow-x-hidden">
-
+ {/* Background Shapes */}
+ <div className="bg-shapes">
+        <div className="shape shape1"></div>
+        <div className="shape shape2"></div>
+        <div className="shape shape3"></div>
+      </div>
       <div className="bg-gradient-to-br from-[#FFE7C7] to-purple-200 shadow-2xl rounded-3xl flex flex-col-reverse md:flex-row w-full max-w-4xl p-4 md:p-8 transition-transform duration-500 md:hover:scale-105">
         {/* Left Section - Image */}
         <div className="flex-1 flex w-full h-[250px] md:h-80 items-center justify-center overflow-hidden relative">
