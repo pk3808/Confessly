@@ -122,7 +122,7 @@ const SignUpPage: React.FC = () => {
                 </button>
               </div>
               <button
-                className="w-full py-2 px-3 bg-orange-400 hover:bg-orange-600 text-white rounded-[10px] shadow-md transition-all duration-500 focus:ring-2 focus:ring-purple-300"
+                className="w-full py-2 px-3 bg-orange-300 hover:bg-orange-600 text-white rounded-[10px] shadow-md transition-all duration-500 focus:ring-2 focus:ring-purple-300"
                 onClick={handleSignUp}
               >
                 Sign Up
