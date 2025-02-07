@@ -41,7 +41,7 @@ const SignUpPage: React.FC = () => {
     <main className="h-screen w-screen overflow-hidden bg-gradient-to-br from-[#EADDCA] to-[#ffffff] flex items-center justify-center px-4">
       {/* <Logo /> */}
       <h1 className="absolute top-4 left-4 text-xl md:text-2xl font-serif font-bold text-[#248a8a] tracking-wide">Confessly</h1>
-      <section className="bg-gradient-to-br from-[#FFE7C7] to-purple-200 shadow-2xl rounded-2xl flex flex-col md:flex-row w-full max-w-4xl p-3 md:p-6 transition-transform duration-500 md:hover:scale-105">
+      <section className="bg-gradient-to-br from-[#FFE7C7] to-purple-200 shadow-2xl rounded-2xl flex flex-col md:flex-row w-full max-w-4xl p-3 md:p-6 transition-transform duration-500 ">
         {/* Left Section - Image */}
         {isOtpScreen ? (
           <Otp />
@@ -52,7 +52,7 @@ const SignUpPage: React.FC = () => {
               alt="Welcome to the community"
               width={400}
               height={400}
-              className="rounded-lg w-56 h-56 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-90 lg:h-90"
+              className="rounded-lg w-56 h-56 sm:w-60 sm:h-60 md:w-[325px] md:h-[375px] lg:w-90 lg:h-90"
               priority
             />
 
