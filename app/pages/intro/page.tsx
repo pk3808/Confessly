@@ -82,27 +82,36 @@ const IntroPage = () => {
   };
 
   return (
-    <div className="h-screen w-screen overflow-hidden bg-gradient-to-br from-[#EADDCA] to-[#ffffff] flex items-center justify-center px-4">
+    <div className="h-screen w-screen overflow-hidden bg-gradient-to-br from-[#F6F1EB] to-[#F6F1EB] flex items-center justify-center px-4">
       {/* Intro Screen */}
       {showIntro ? (
-        <div className={`flex flex-col items-center justify-center text-center transition-opacity duration-500 ${fadeOut ? "opacity-0" : "opacity-100"}`}>
-          <Image
-            src={introSlide.image}
-            alt="Confessly Logo"
-            width={120}
-            height={120}
-            className="w-28 h-28 md:w-40 md:h-40"
-          />
-          <h2 className="text-2xl md:text-4xl font-bold mt-4 text-orange-600">
-            {introSlide.title}
-          </h2>
-          <p className="text-gray-700 mt-2 text-base md:text-lg">
-            {introSlide.description}
-          </p>
-        </div>
+    <div
+    className={`flex flex-col items-center justify-center text-center transition-opacity duration-700 transform ${
+      fadeOut ? "opacity-0 scale-95" : "opacity-100 scale-100"
+    }`}
+  >
+    <Image
+      src={introSlide.image}
+      alt="Confessly Logo"
+      width={120}
+      height={120}
+      className="w-28 h-28 md:w-40 md:h-40"
+    />
+    
+    {/* Title: Smaller, elegant, and stylish */}
+    <h2 className="text-xl md:text-md font-semibold mt-3 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">
+      {introSlide.title}
+    </h2>
+  
+    {/* Description: More compact and readable */}
+    <p className="mt-2 text-gray-600 text-sm md:text-base font-light leading-snug max-w-md">
+      {introSlide.description}
+    </p>
+  </div>  
+     
       ) : (
         // Main Slides UI
-        <div className="bg-gradient-to-br from-[#FFE7C7] to-purple-200 shadow-2xl rounded-3xl flex flex-col-reverse md:flex-row w-full max-w-4xl p-4 md:p-8 transition-transform duration-500 md:hover:scale-105">
+        <div className="bg-gradient-to-br from-[#f5f2ef] to-[#faf8f6] shadow-2xl rounded-3xl flex flex-col-reverse md:flex-row w-full max-w-4xl p-4 md:p-8 transition-transform duration-500 md:hover:scale-105">
           {/* Left Section - Image */}
           <div className="flex-1 flex w-full h-[250px] md:h-80 items-center justify-center overflow-hidden relative">
             {slides.map((slide, index) => (
