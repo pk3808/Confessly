@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { Email } from "@mui/icons-material";
-import Logo from "@/app/components/logo/logo";
+import { Email, Help } from "@mui/icons-material";
 
 
 const ForgotPasswordPage: React.FC = () => {
@@ -23,10 +22,17 @@ const ForgotPasswordPage: React.FC = () => {
   };
 
   return (
-    <main className="h-screen  overflow-hidden w-screen bg-gradient-to-br from-[#EADDCA] to-[#ffffff] flex items-center justify-center px-4">
+    <main className="h-screen  overflow-hidden w-screen bg-gradient-to-br from-[#f1ebe3] to-[#f3ebe2] flex items-center justify-center px-4">
       {/* <Logo /> */}
       <h1 className="absolute top-4 left-4 text-xl md:text-2xl font-serif font-bold text-[#248a8a] tracking-wide">Confessly</h1>
-      <section className="bg-gradient-to-br from-[#FFE7C7] to-purple-200 shadow-2xl rounded-2xl flex flex-col md:flex-row w-full max-w-3xl p-3 md:p-6 transition-transform duration-500 md:hover:scale-105">
+      <button
+        className="absolute top-4 hidden justify-center md:flex right-4  items-center space-x-2 py-1.5 px-3 hover:bg-gray-800 text-black hover:text-white rounded-md shadow-md transition-all duration-500 focus:ring-2 focus:ring-blue-300 border-2 border-black w-[130px]"
+       
+      >
+        <Help className="text-inheret" />
+        <span className="text-inherit">Help</span>
+      </button>
+      <section className="bg-gradient-to-br from-[#fcfbfa] to-[#e2ddd7] shadow-2xl rounded-2xl flex flex-col md:flex-row w-full max-w-4xl p-3 md:p-6 transition-transform duration-500">
         {/* Left Section - Image */}
         <div className="flex-1 flex items-center justify-center overflow-hidden relative">
           <Image
@@ -41,7 +47,7 @@ const ForgotPasswordPage: React.FC = () => {
 
         {/* Right Section - Form */}
         <div className="flex-1 flex flex-col justify-center mt-4 md:mt-0 px-3">
-          <h2 className="text-2xl md:text-3xl font-bold text-orange-500 mb-3">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
             Forgot Password
           </h2>
           <p className="text-gray-600 mb-4">
@@ -71,7 +77,7 @@ const ForgotPasswordPage: React.FC = () => {
                 <p className="text-gray-600">
                   Remembered your password? {" "}
                   <span
-                    className="text-purple-600 hover:underline cursor-pointer"
+                    className="text-orange-700 font-bold hover:underline cursor-pointer"
                     onClick={handleBackToLogin}
                   >
                     Back to Login

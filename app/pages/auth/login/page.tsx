@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { Google, Facebook, Email, Visibility, VisibilityOff, Key } from "@mui/icons-material";
-import Logo from "@/app/components/logo/logo";
+import { Google, Facebook, Email, Visibility, VisibilityOff, Key, Help } from "@mui/icons-material";
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -39,12 +38,19 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <main className="h-screen overflow-hidden w-screen bg-gradient-to-br from-[#EADDCA] to-[#ffffff] flex items-center justify-center px-4">
-     {/* <Logo /> */}
-     <h1 className="absolute top-4 left-4 text-xl md:text-2xl font-serif font-bold text-[#248a8a] tracking-wide">Confessly</h1>
-      <section className="bg-gradient-to-br from-[#FFE7C7] to-purple-200 shadow-2xl rounded-2xl flex flex-col md:flex-row w-full max-w-3xl p-3 md:p-6 transition-transform duration-500 md:hover:scale-105">
+    <main className="h-screen overflow-hidden w-screen bg-gradient-to-br from-[#f1ebe3] to-[#f3ebe2] flex items-center justify-center px-4">
+      {/* <Logo /> */}
+      <h1 className="absolute top-4 left-4 text-xl md:text-2xl font-serif font-bold text-[#248a8a] tracking-wide">Confessly</h1>
+      <button
+        className="absolute top-4 hidden justify-center md:flex right-4  items-center space-x-2 py-1.5 px-3 hover:bg-gray-800 text-black hover:text-white rounded-md shadow-md transition-all duration-500 focus:ring-2 focus:ring-blue-300 border-2 border-black w-[130px]"
+        onClick={handleFacebookLogin}
+      >
+        <Help className="text-inheret" />
+        <span className="text-inherit">Help</span>
+      </button>
+      <section className="bg-gradient-to-br from-[#fcfbfa] to-[#e2ddd7] shadow-2xl rounded-2xl flex flex-col md:flex-row w-full max-w-4xl p-3 md:p-6 transition-transform duration-500">
         {/* Left Section - Image */}
-        
+
         <div className="flex-1 flex items-center justify-center overflow-hidden relative">
           <Image
             src="/images/loginc.png"
@@ -58,7 +64,7 @@ const LoginPage: React.FC = () => {
 
         {/* Right Section - Form */}
         <div className="flex-1 flex flex-col justify-center mt-4 md:mt-0 px-3">
-          <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-pink-500 via-orange-400 to-orange-500 bg-clip-text text-transparent">
+          <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-black via-black to-black bg-clip-text text-transparent">
             Welcome Back
           </h2>
           <p className="text-gray-600 mb-4">
@@ -100,7 +106,7 @@ const LoginPage: React.FC = () => {
             </button>
             <div className="text-right mt-2">
               <span
-                className="text-sm text-purple-600 hover:underline cursor-pointer"
+                className="text-sm text-orange-600 hover:underline cursor-pointer"
                 onClick={handleForgotPassword}
               >
                 Forgot password?
@@ -109,25 +115,25 @@ const LoginPage: React.FC = () => {
           </div>
           <div className="mt-4 flex items-center justify-center space-x-3">
             <button
-              className="flex items-center space-x-2 py-1.5 px-3 bg-red-500 hover:bg-red-600 text-white rounded-full shadow-md transition-all duration-500 focus:ring-2 focus:ring-red-300"
+              className="flex items-center space-x-2 py-1.5 px-3 hover:bg-red-700 text-black hover:text-white rounded-md shadow-md transition-all duration-500 focus:ring-2 focus:ring-red-300 border-2 border-black w-[130px]"
               onClick={handleGoogleLogin}
             >
-              <Google />
-              <span>Google</span>
+              <Google className="text-inheret" />
+              <span className="text-inherit">Google</span>
             </button>
             <button
-              className="flex items-center space-x-2 py-1.5 px-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-md transition-all duration-500 focus:ring-2 focus:ring-blue-300"
+              className="flex items-center space-x-2 py-1.5 px-3 hover:bg-blue-700 text-black hover:text-white rounded-md shadow-md transition-all duration-500 focus:ring-2 focus:ring-blue-300 border-2 border-black w-[130px]"
               onClick={handleFacebookLogin}
             >
-              <Facebook />
-              <span>Facebook</span>
+              <Facebook className="text-inheret" />
+              <span className="text-inherit">Facebook</span>
             </button>
           </div>
           <div className="mt-4 text-center">
             <p className="text-gray-600">
               Don't have an account? {" "}
               <span
-                className="text-purple-600 hover:underline cursor-pointer"
+                className="text-orange-700 font-bold hover:underline cursor-pointer"
                 onClick={handleSignUpRedirect}
               >
                 Sign up here
