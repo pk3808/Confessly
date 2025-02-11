@@ -13,7 +13,7 @@ const IntroPage = () => {
 
   const introSlide = {
     id: 1,
-    title: "Welcome to Confessly",
+    title: "Confessly",
     description: "Because Every Voice Deserves to Be Heard.",
     image: "/images/logo.png",
   };
@@ -99,7 +99,7 @@ const IntroPage = () => {
     />
     
     {/* Title: Smaller, elegant, and stylish */}
-    <h2 className="text-xl md:text-md font-semibold mt-3 bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent tracking-wide">
+    <h2 className="text-xl md:text-md font-mono  font-semibold mt-3 bg-gradient-to-r from-purple-500 to-red-500 bg-clip-text text-transparent tracking-wide">
       {introSlide.title}
     </h2>
   

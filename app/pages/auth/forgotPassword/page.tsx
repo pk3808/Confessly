@@ -24,7 +24,7 @@ const ForgotPasswordPage: React.FC = () => {
   return (
     <main className="h-screen  overflow-hidden w-screen bg-gradient-to-br from-[#f1ebe3] to-[#f3ebe2] flex items-center justify-center px-4">
       {/* <Logo /> */}
-      <h1 className="absolute top-4 left-4 text-xl md:text-2xl font-serif font-bold text-[#248a8a] tracking-wide">Confessly</h1>
+      <h1 className="absolute top-4 left-4 text-xl md:text-2xl font-serif font-bold text-[#000000] tracking-wide">Confessly</h1>
       <button
         className="absolute top-4 hidden justify-center md:flex right-4  items-center space-x-2 py-1.5 px-3 hover:bg-gray-800 text-black hover:text-white rounded-md shadow-md transition-all duration-500 focus:ring-2 focus:ring-blue-300 border-2 border-black w-[130px]"
        
