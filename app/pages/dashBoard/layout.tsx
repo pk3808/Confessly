@@ -1,5 +1,4 @@
 import React from "react";
-import { ModeToggle } from "@/app/components/themeToggle/ModeToggle";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -39,7 +38,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       {/* Main content area */}
       <div className="flex-1 bg-gray-50 p-6">
         {/* Top bar */}
-        <ModeToggle />
+      
 
         {/* Content */}
         <div className="mt-6">{children}</div>
