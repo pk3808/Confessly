@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Google, Facebook, Person, Email, Visibility, VisibilityOff, Key, Help } from "@mui/icons-material";
-import Otp from "@/app/components/otp/otp";
+import Otp from "@/app/components/otp/OtpPage";
 
 const SignUpPage: React.FC = () => {
   const [username, setUsername] = useState("");
