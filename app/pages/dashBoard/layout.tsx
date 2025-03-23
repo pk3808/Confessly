@@ -1,4 +1,5 @@
 import React from "react";
+import ThemeToggle from "../../components/ThemeToggle";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -7,6 +8,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <div className="w-1/5 bg-gray-800 p-6 text-white rounded-r-xl">
         <div className="flex flex-col items-center space-y-8">
           <div className="text-3xl font-semibold">Confessly</div>
+          <ThemeToggle />
           <div className="space-y-6">
             <a href="#" className="text-gray-300 hover:text-white text-xl">
               News Feed
