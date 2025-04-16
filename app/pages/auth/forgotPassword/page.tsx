@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Email, Help } from "@mui/icons-material";
 
-
 const ForgotPasswordPage: React.FC = () => {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -22,17 +21,18 @@ const ForgotPasswordPage: React.FC = () => {
   };
 
   return (
-    <main className="h-screen  overflow-hidden w-screen bg-gradient-to-br from-[#f1ebe3] to-[#f3ebe2] flex items-center justify-center px-4">
-      {/* <Logo /> */}
-      <h1 className="absolute top-4 left-4 text-xl md:text-2xl font-serif font-bold text-[#000000] tracking-wide">Confessly</h1>
+    <main className="h-screen w-screen bg-gradient-to-br from-[#F7F7F8] to-[#FFFFFF] flex items-center justify-center px-4">
+      <h1 className="absolute top-4 left-4 text-xl md:text-2xl font-serif font-bold text-[#000000] tracking-wide">
+        Confessly
+      </h1>
       <button
-        className="absolute top-4 hidden justify-center md:flex right-4  items-center space-x-2 py-1.5 px-3 hover:bg-gray-800 text-black hover:text-white rounded-md shadow-md transition-all duration-500 focus:ring-2 focus:ring-blue-300 border-2 border-black w-[130px]"
-       
+        className="absolute top-4 hidden justify-center md:flex right-4 items-center space-x-2 py-1.5 px-3 hover:bg-gray-800 text-black hover:text-white rounded-md shadow-md transition-all duration-500 focus:ring-2 focus:ring-blue-300 border-2 border-black w-[130px]"
       >
         <Help className="text-inheret" />
         <span className="text-inherit">Help</span>
       </button>
-      <section className="bg-gradient-to-br from-[#fcfbfa] to-[#e2ddd7] shadow-2xl rounded-2xl flex flex-col md:flex-row w-full max-w-4xl p-3 md:p-6 transition-transform duration-500">
+
+      <section className="bg-gradient-to-br from-[#F7F7F8] to-white shadow-2xl rounded-2xl flex flex-col md:flex-row w-full max-w-4xl p-3 md:p-6 transition-transform duration-500">
         {/* Left Section - Image */}
         <div className="flex-1 flex items-center justify-center overflow-hidden relative">
           <Image
@@ -53,29 +53,34 @@ const ForgotPasswordPage: React.FC = () => {
           <p className="text-gray-600 mb-4">
             Enter your email address, and we'll send you a link to reset your password.
           </p>
+
           {!submitted ? (
             <>
               <div className="space-y-4">
-                <div className="flex items-center border rounded-md shadow-sm px-2 py-1 focus-within:ring-2 focus-within:ring-orange-300">
-                  <Email className="text-gray-500 mr-2" />
+                {/* Email Input with Icon */}
+                <div className="relative w-full">
+                  <Email className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
                   <input
                     type="email"
                     placeholder="Email"
-                    className="flex-1 bg-transparent outline-none text-gray-700 text-base"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    className="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-300 transition duration-300"
                   />
                 </div>
+
+                {/* Submit Button */}
                 <button
-                  className="w-full py-2 px-3 bg-orange-300 hover:bg-orange-600 text-white rounded-[10px] shadow-md transition-all duration-500 focus:ring-2 focus:ring-purple-300"
+                  className="w-full py-2 px-3 bg-orange-300 hover:bg-orange-600 text-white rounded-[10px] shadow-md transition-all duration-500 focus:ring-2 focus:ring-orange-300"
                   onClick={handleResetPassword}
                 >
                   Send Reset Link
                 </button>
               </div>
+
               <div className="mt-4 text-center">
                 <p className="text-gray-600">
-                  Remembered your password? {" "}
+                  Remembered your password?{" "}
                   <span
                     className="text-orange-700 font-bold hover:underline cursor-pointer"
                     onClick={handleBackToLogin}
