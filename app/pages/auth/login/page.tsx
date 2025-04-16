@@ -3,7 +3,15 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { Google, Facebook, Email, Visibility, VisibilityOff, Key, Help } from "@mui/icons-material";
+import {
+  Google,
+  Facebook,
+  Email,
+  Visibility,
+  VisibilityOff,
+  Key,
+  Help,
+} from "@mui/icons-material";
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -14,17 +22,14 @@ const LoginPage: React.FC = () => {
   const handleLogin = () => {
     console.log("Login with", { email, password });
     router.push("/pages/dashBoard");
-    // Add login logic here
   };
 
   const handleGoogleLogin = () => {
     console.log("Login with Google");
-    // Add Google login logic here
   };
 
   const handleFacebookLogin = () => {
     console.log("Login with Facebook");
-    // Add Facebook login logic here
   };
 
   const handleSignUpRedirect = () => {
@@ -33,36 +38,37 @@ const LoginPage: React.FC = () => {
 
   const handleForgotPassword = () => {
     console.log("Forgot password clicked");
-    // Add forgot password logic or redirect here
     router.push("forgotPassword");
   };
 
   return (
-    <main className="h-screen overflow-hidden w-screen bg-gradient-to-br from-[#f1ebe3] to-[#f3ebe2] flex items-center justify-center px-4">
-      {/* <Logo /> */}
-      <h1 className="absolute top-4 left-4 text-xl md:text-2xl font-serif font-bold text-[#000000] tracking-wide">Confessly</h1>
+    <main className="h-screen w-screen bg-gradient-to-br from-[#F7F7F8] to-[#FFFFFF] flex items-center justify-center px-4">
+      <h1 className="absolute top-4 left-4 text-xl md:text-2xl font-serif font-bold text-black tracking-wide">
+        Confessly
+      </h1>
+
       <button
-        className="absolute top-4 hidden justify-center md:flex right-4  items-center space-x-2 py-1.5 px-3 hover:bg-gray-800 text-black hover:text-white rounded-md shadow-md transition-all duration-500 focus:ring-2 focus:ring-blue-300 border-2 border-black w-[130px]"
+        className="absolute top-4 hidden md:flex right-4 items-center space-x-2 py-1.5 px-3 hover:bg-gray-800 text-black hover:text-white rounded-md shadow-md transition-all duration-500 focus:ring-2 focus:ring-blue-300 border-2 border-black w-[130px]"
         onClick={handleFacebookLogin}
       >
-        <Help className="text-inheret" />
-        <span className="text-inherit">Help</span>
+        <Help />
+        <span>Help</span>
       </button>
-      <section className="bg-gradient-to-br from-[#fcfbfa] to-[#e2ddd7] shadow-2xl rounded-2xl flex flex-col md:flex-row w-full max-w-4xl p-3 md:p-6 transition-transform duration-500">
-        {/* Left Section - Image */}
 
-        <div className="flex-1 flex items-center justify-center overflow-hidden relative">
+      <section className="bg-white/70 backdrop-blur-sm shadow-2xl rounded-2xl flex flex-col md:flex-row w-full max-w-4xl p-3 md:p-6 transition-transform duration-500">
+        {/* Left Image */}
+        <div className="flex-1 flex items-center justify-center">
           <Image
             src="/images/loginc.png"
             alt="Welcome back!"
             width={400}
             height={400}
-            className="rounded-lg w-56 h-56 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-90 lg:h-90 "
+            className="rounded-lg w-56 h-56 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-90 lg:h-90"
             priority
           />
         </div>
 
-        {/* Right Section - Form */}
+        {/* Right Form */}
         <div className="flex-1 flex flex-col justify-center mt-4 md:mt-0 px-3">
           <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-black via-black to-black bg-clip-text text-transparent">
             Welcome Back
@@ -70,41 +76,49 @@ const LoginPage: React.FC = () => {
           <p className="text-gray-600 mb-4">
             Please login to your account to continue.
           </p>
-          <div className="space-y-4">
-            <div className="flex items-center border rounded-md shadow-sm px-2 py-1 focus-within:ring-2 focus-within:ring-orange-300">
-              <Email className="text-gray-500 mr-2" />
+
+          <div className="space-y-5">
+            {/* Email Input */}
+            <div className="relative">
+              <Email className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
                 type="email"
                 placeholder="Email"
-                className="flex-1 bg-transparent outline-none text-gray-700 text-base"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                className="pl-10 pr-4 py-2 w-full rounded-xl border border-gray-300 shadow-sm focus:ring-2 focus:ring-orange-400 focus:outline-none text-gray-700 placeholder-gray-400 transition-all duration-300"
               />
             </div>
-            <div className="flex items-center border rounded-md shadow-sm px-2 py-1 focus-within:ring-2 focus-within:ring-orange-300">
-              <Key className="text-gray-500 mr-2" />
+
+            {/* Password Input */}
+            <div className="relative">
+              <Key className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
-                className="flex-1 bg-transparent outline-none text-gray-700 text-base"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                className="pl-10 pr-10 py-2 w-full rounded-xl border border-gray-300 shadow-sm focus:ring-2 focus:ring-orange-400 focus:outline-none text-gray-700 placeholder-gray-400 transition-all duration-300"
               />
               <button
                 type="button"
-                className="ml-2"
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
                 onClick={() => setShowPassword((prev) => !prev)}
               >
-                {showPassword ? <VisibilityOff className="text-gray-500" /> : <Visibility className="text-gray-500" />}
+                {showPassword ? <VisibilityOff /> : <Visibility />}
               </button>
             </div>
+
+            {/* Login Button */}
             <button
-              className="w-full py-2 px-3 bg-orange-300 hover:bg-orange-600 text-white rounded-[10px] shadow-md transition-all duration-500 focus:ring-2 focus:ring-purple-300"
+              className="w-full py-2 px-3 bg-orange-400 hover:bg-orange-600 text-white rounded-xl shadow-md transition-all duration-500 focus:ring-2 focus:ring-purple-300"
               onClick={handleLogin}
             >
               Login
             </button>
-            <div className="text-right mt-2">
+
+            {/* Forgot Password */}
+            <div className="text-right">
               <span
                 className="text-sm text-orange-600 hover:underline cursor-pointer"
                 onClick={handleForgotPassword}
@@ -113,25 +127,29 @@ const LoginPage: React.FC = () => {
               </span>
             </div>
           </div>
-          <div className="mt-4 flex items-center justify-center space-x-3">
+
+          {/* Social Login Buttons */}
+          <div className="mt-6 flex items-center justify-center space-x-3">
             <button
               className="flex items-center space-x-2 py-1.5 px-3 hover:bg-red-700 text-black hover:text-white rounded-md shadow-md transition-all duration-500 focus:ring-2 focus:ring-red-300 border-2 border-black w-[130px]"
               onClick={handleGoogleLogin}
             >
-              <Google className="text-inheret" />
-              <span className="text-inherit">Google</span>
+              <Google />
+              <span>Google</span>
             </button>
             <button
               className="flex items-center space-x-2 py-1.5 px-3 hover:bg-blue-700 text-black hover:text-white rounded-md shadow-md transition-all duration-500 focus:ring-2 focus:ring-blue-300 border-2 border-black w-[130px]"
               onClick={handleFacebookLogin}
             >
-              <Facebook className="text-inheret" />
-              <span className="text-inherit">Facebook</span>
+              <Facebook />
+              <span>Facebook</span>
             </button>
           </div>
+
+          {/* Sign up Redirect */}
           <div className="mt-4 text-center">
             <p className="text-gray-600">
-              Don't have an account? {" "}
+              Don't have an account?{" "}
               <span
                 className="text-orange-700 font-bold hover:underline cursor-pointer"
                 onClick={handleSignUpRedirect}

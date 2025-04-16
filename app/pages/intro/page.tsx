@@ -2,14 +2,27 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import "./intro.css";
 import Image from "next/image";
-
+import "./intro.css";
+import {
+  ArrowRight
+} from "@mui/icons-material";
 const IntroPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showIntro, setShowIntro] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
   const router = useRouter();
+
+  // Updated brand colors
+  const colors = {
+    primary: "#3E6D9C", // Deep blue
+    secondary: "#5F4B8BFF", // Purple
+    accent: "#00A67E", // Teal/green (Get Started button)
+    background: "#F7F7F8", // Light gray background
+    backgroundAlt: "#EFEFEF", // Slightly darker background
+    text: "#111111", // Dark text
+    textLight: "#6E6E80", // Gray text
+  };
 
   const introSlide = {
     id: 1,
@@ -51,12 +64,12 @@ const IntroPage = () => {
 
   useEffect(() => {
     const fadeTimer = setTimeout(() => {
-      setFadeOut(true); // Start fading out after 1 second
-    }, 1000);
+      setFadeOut(true);
+    }, 1500);
 
     const timer = setTimeout(() => {
       setShowIntro(false);
-    }, 1800); // Remove logo after 1.5 seconds
+    }, 2300);
 
     return () => {
       clearTimeout(fadeTimer);
@@ -80,138 +93,161 @@ const IntroPage = () => {
     router.push("pages/auth/signup");
   };
 
+  const handleSkip = () => {
+    router.push("pages/auth/signup");
+  };
+
   return (
-    <div className="h-screen w-screen overflow-hidden bg-gradient-to-br from-[#F6F1EB] to-[#F6F1EB] flex items-center justify-center px-4">
+    <div className="h-screen w-screen overflow-hidden bg-gradient-to-br from-[#F7F7F8] to-[#FFFFFF] flex items-center justify-center px-4 relative">
+      {/* Skip button */}
+      <h1 className="absolute top-4 left-4 text-xl md:text-2xl font-serif font-bold text-[#000000]">
+        Confessly
+      </h1>
+      {!showIntro && (
+        <button 
+          onClick={handleSkip}
+          className="absolute top-4 right-4 hidden md:flex items-center space-x-2 px-6 py-1.5 text-black hover:bg-gray-800 hover:text-white border-2 border-black rounded-md shadow-md transition-all duration-300"
+
+        >
+
+          <ArrowRight className="text-inheret w-12 h-12" />
+          Skip
+        </button>
+        
+      )}
+      
       {/* Intro Screen */}
       {showIntro ? (
         <div
-          className={`flex flex-col items-center justify-center text-center transition-opacity duration-700 transform ${
+          className={`flex flex-col items-center justify-center text-center transition-all duration-1000 transform ${
             fadeOut ? "opacity-0 scale-95" : "opacity-100 scale-100"
           }`}
         >
-          <Image
-            src={introSlide.image}
-            alt="Confessly Logo"
-            width={120}
-            height={120}
-            className="w-28 h-28 md:w-40 md:h-40"
-          />
+          <div className="relative">
+            <Image
+              src={introSlide.image}
+              alt="Confessly Logo"
+              width={150}
+              height={150}
+              className="w-28 h-28 md:w-40 md:h-40 drop-shadow-xl animate-pulse"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#3E6D9C]/20 to-[#00A67E]/20 rounded-full blur-xl opacity-70 animate-pulse"></div>
+          </div>
 
-          {/* Title: Smaller, elegant, and stylish */}
-          <h2 className="text-xl md:text-md font-mono  font-semibold mt-3 bg-gradient-to-r from-purple-500 to-red-500 bg-clip-text text-transparent tracking-wide">
+          {/* Title with updated colors */}
+          <h2 className="text-3xl md:text-4xl font-mono font-bold mt-5 bg-gradient-to-r from-[#3E6D9C] via-[#5F4B8B] to-[#00A67E] bg-clip-text text-transparent tracking-wide">
             {introSlide.title}
           </h2>
 
-          {/* Description: More compact and readable */}
-          <p className="mt-2 text-gray-600 text-sm md:text-base font-light leading-snug max-w-md">
+          {/* Tagline with updated colors */}
+          <p className="mt-3 text-[#6E6E80] text-sm md:text-base font-light leading-snug max-w-md">
             {introSlide.description}
           </p>
         </div>
       ) : (
-        // Main Slides UI
-        <div className="bg-gradient-to-br from-[#f5f2ef] to-[#faf8f6] shadow-2xl rounded-3xl flex flex-col-reverse md:flex-row w-full max-w-4xl p-4 md:p-8 transition-transform duration-500 md:hover:scale-105">
-          {/* Left Section - Image */}
-          <div className="flex-1 flex w-full h-[250px] md:h-80 items-center justify-center overflow-hidden relative">
-            {slides.map((slide, index) => (
-              <Image
-                key={index}
-                src={slide.image}
-                alt={slide.title}
-                width={400}
-                height={400}
-                className={`absolute rounded-lg w-56 h-56 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-90 lg:h-90 floating-image object-contain transition-all duration-700 ease-in-out ${
-                  index === currentSlide
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-20"
-                }`}
-                priority
-              />
-            ))}
-          </div>
-
-          {/* Right Section - Info */}
-          <div className="flex-1 flex flex-col justify-between mt-6 md:mt-0 min-h-[600px] max-h-[350px] md:min-h-[300px] md:max-h-[3500px]:">
-            <div className="md:hidden flex-1 flex w-full h-[250px] md:h-80 items-center justify-center overflow-hidden relative">
-              {slides.map((slide, index) => (
-                <Image
-                  key={index}
-                  src={slide.image}
-                  alt={slide.title}
-                  width={400}
-                  height={400}
-                  className={`absolute rounded-lg w-56 h-56 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-90 lg:h-90 floating-image object-contain transition-all duration-700 ease-in-out ${
-                    index === currentSlide
-                      ? "opacity-100 translate-x-0"
-                      : "opacity-0 translate-x-20"
-                  }`}
-                  priority
-                />
-              ))}
-            </div>
-
-            {/* Slide Content */}
-            <div className="flex-1 flex flex-col justify-between mt-6 md:mt-0 relative">
-              {slides.map((slide, index) => (
-                <div
-                  key={slide.id || index}
-                  className={`absolute transition-all duration-700 ease-in-out md:mt-[5%] ${
-                    index === currentSlide
-                      ? "opacity-100 translate-x-0"
-                      : "opacity-0 translate-x-20"
-                  }`}
-                >
-                  <h2
-                    className={`text-2xl md:text-3xl font-bold bg-gradient-to-r from-pink-500 via-orange-400 to-orange-500 bg-clip-text text-transparent`}
-                  >
-                    {slide.title}
-                  </h2>
-                  <p className="text-gray-700 mt-4 text-base md:text-lg">
-                    {slide.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* Navigation Buttons */}
-            <div className="flex items-center justify-between md:mb-[3%]">
-              <button
-                className={`py-2 px-4 rounded-full transition-all duration-500 transform focus:ring focus:ring-purple-300 shadow-md ${
-                  currentSlide === 0
-                    ? "bg-gray-200 text-gray-500 cursor-not-allowed shadow-inner"
-                    : "bg-[#E97451] text-white hover:shadow-lg hover:scale-110"
-                }`}
-                onClick={handlePrevious}
-                disabled={currentSlide === 0}
-              >
-                Previous
-              </button>
-              <div className="flex mt-4 space-x-2 justify-center">
-                {slides.map((_, index) => (
-                  <span
+        // Main Slides UI with FIXED SIZE - increased height for mobile
+        <div className="bg-gradient-to-br from-[#F7F7F8] to-white shadow-xl rounded-3xl w-full max-w-4xl h-[650px] md:h-[450px] overflow-hidden transition-all duration-500 border border-[#EFEFEF]">
+          {/* Flex direction column for mobile (image on top), row for desktop */}
+          <div className="flex flex-col md:flex-row h-full">
+            {/* Image Section - TOP on mobile, LEFT on desktop */}
+            <div className="w-full md:w-1/2 h-[250px] md:h-full flex items-center justify-center relative bg-gradient-to-br from-[#F7F7F8]/80 to-white order-first">
+              {/* Background decorative elements */}
+              <div className="absolute w-full h-full opacity-10">
+                <div className="absolute top-0 left-0 w-40 h-40 bg-[#3E6D9C]/20 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 right-0 w-40 h-40 bg-[#00A67E]/20 rounded-full blur-3xl"></div>
+              </div>
+              
+              {/* Fixed size image container */}
+              <div className="relative w-full h-full flex items-center justify-center">
+                {slides.map((slide, index) => (
+                  <div 
                     key={index}
-                    className={`h-3 w-3 rounded-full transition-all duration-500 transform ${
+                    className={`absolute inset-0 flex items-center justify-center transition-all duration-700 ease-in-out ${
                       index === currentSlide
-                        ? "bg-orange-500 scale-150 shadow-lg"
-                        : "bg-orange-400 scale-100"
+                        ? "opacity-100 scale-100"
+                        : "opacity-0 scale-90"
                     }`}
-                  ></span>
+                  >
+                    {/* Fixed size image wrapper */}
+                    <div className="w-44 h-44 md:w-64 md:h-64 lg:w-72 lg:h-72 relative">
+                      <Image
+                        src={slide.image}
+                        alt={slide.title}
+                        layout="fill"
+                        objectFit="contain"
+                        className="drop-shadow-lg floating-image"
+                        priority
+                      />
+                    </div>
+                  </div>
                 ))}
               </div>
-              {currentSlide === slides.length - 1 ? (
-                <button
-                  className="py-2 px-4 rounded-full transform transition-all duration-500 bg-green-400 hover:bg-green-500 shadow-md hover:shadow-lg focus:ring focus:ring-green-300 text-white"
-                  onClick={handleSignUp}
-                >
-                  Sign Up
-                </button>
-              ) : (
-                <button
-                  className="py-2 px-4 rounded-full transform transition-all duration-500 bg-[#E97451] text-white shadow-md hover:shadow-lg focus:ring focus:ring-purple-300"
-                  onClick={handleNext}
-                >
-                  Next
-                </button>
-              )}
+            </div>
+
+            {/* Content Section - BOTTOM on mobile, RIGHT on desktop */}
+            <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-between bg-white h-[400px] md:h-full order-last">
+              {/* Slide Content - Fixed height container */}
+              <div className="flex-1 flex flex-col justify-center relative">
+                {slides.map((slide, index) => (
+                  <div
+                    key={slide.id}
+                    className={`absolute inset-0  transition-all duration-700 ease-in-out ${
+                      index === currentSlide
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-8"
+                    }`}
+                  >
+                    <h2 className="text-2xl md:text-3xl md:mt-8 font-bold bg-gradient-to-r from-[#3E6D9C] to-[#00A67E] bg-clip-text text-transparent">
+                      {slide.title}
+                    </h2>
+                    <p className="text-[#6E6E80] mt-4 text-base md:text-lg">
+                      {slide.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Progress Indicator and Navigation - Fixed position */}
+              <div className="mt-4 md:mb-8 space-y-6">
+                {/* Progress bar */}
+                <div className="w-full bg-[#F7F7F8] rounded-full h-2 overflow-hidden">
+                  <div 
+                    className="h-full bg-gradient-to-r from-[#3E6D9C] to-[#00A67E] transition-all duration-500"
+                    style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
+                  ></div>
+                </div>
+                
+                {/* Navigation Buttons with updated colors */}
+                <div className="flex items-center justify-between">
+                  <button
+                    className={`py-2 px-5 rounded-full transition-all duration-300 transform focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#3E6D9C]/50 ${
+                      currentSlide === 0
+                        ? "bg-[#F7F7F8] text-[#6E6E80] cursor-not-allowed"
+                        : "bg-white text-[#3E6D9C] border border-[#3E6D9C] hover:bg-[#3E6D9C]/10"
+                    }`}
+                    onClick={handlePrevious}
+                    disabled={currentSlide === 0}
+                  >
+                    Back
+                  </button>
+                  
+                  {currentSlide === slides.length - 1 ? (
+                    <button
+                      className="py-2 px-6 rounded-full transform transition-all duration-300 bg-[#00A67E] hover:bg-[#00956F] text-white font-medium shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00A67E]/50"
+                      onClick={handleSignUp}
+                    >
+                      Get Started
+                    </button>
+                  ) : (
+                    <button
+                      className="py-2 px-6 rounded-full transform transition-all duration-300 bg-[#3E6D9C] hover:bg-[#345D85] text-white font-medium shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#3E6D9C]/50"
+                      onClick={handleNext}
+                    >
+                      Next
+                    </button>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </div>
